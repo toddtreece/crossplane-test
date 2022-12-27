@@ -20,8 +20,9 @@ import (
 	"github.com/crossplane/crossplane-runtime/pkg/controller"
 	ctrl "sigs.k8s.io/controller-runtime"
 
-	"github.com/crossplane/provider-template/internal/controller/config"
-	"github.com/crossplane/provider-template/internal/controller/mytype"
+	"github.com/crossplane/provider-toddtest/internal/controller/config"
+	"github.com/crossplane/provider-toddtest/internal/controller/dashboard"
+	"github.com/crossplane/provider-toddtest/internal/controller/panel"
 )
 
 // Setup creates all Template controllers with the supplied logger and adds them to
@@ -29,7 +30,8 @@ import (
 func Setup(mgr ctrl.Manager, o controller.Options) error {
 	for _, setup := range []func(ctrl.Manager, controller.Options) error{
 		config.Setup,
-		mytype.Setup,
+		dashboard.Setup,
+		panel.Setup,
 	} {
 		if err := setup(mgr, o); err != nil {
 			return err

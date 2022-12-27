@@ -1,6 +1,6 @@
 # ====================================================================================
 # Setup Project
-PROJECT_NAME := provider-template
+PROJECT_NAME := provider-toddtest
 PROJECT_REPO := github.com/crossplane/$(PROJECT_NAME)
 
 PLATFORMS ?= linux_amd64 linux_arm64
@@ -25,8 +25,10 @@ KIND_NODE_IMAGE_TAG ?= v1.23.4
 # Setup Kubernetes tools
 -include build/makelib/k8s_tools.mk
 
+colon := :
+$(colon) := :
 # Setup Images
-DOCKER_REGISTRY ?= crossplane
+DOCKER_REGISTRY ?= crossplane-registry.localhost
 IMAGES = $(PROJECT_NAME) $(PROJECT_NAME)-controller
 -include build/makelib/image.mk
 

@@ -6,8 +6,8 @@ include ../../../build/makelib/common.mk
 
 # ====================================================================================
 #  Options
-DOCKER_REGISTRY ?= crossplane
-IMAGE = $(BUILD_REGISTRY)/provider-template-$(ARCH)
+DOCKER_REGISTRY ?= crossplane-registry.localhost
+IMAGE = $(BUILD_REGISTRY)/provider-toddtest-$(ARCH)
 OSBASEIMAGE = scratch
 include ../../../build/makelib/image.mk
 
